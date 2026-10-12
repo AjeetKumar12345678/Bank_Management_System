@@ -1,0 +1,391 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f6fc;
+    color: #172b4d;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 245px;
+    min-height: 100vh;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #0b2035, #142d4d);
+    color: white;
+}
+
+.brand {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.brand-subtitle {
+    color: #9db7d3;
+    font-size: 12px;
+    padding: 6px 0 35px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar a {
+    color: #d8e4f1;
+    text-decoration: none;
+    padding: 13px 12px;
+    border-radius: 9px;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #176bb0;
+    color: white;
+    transform: translateX(3px);
+}
+
+.sidebar .logout {
+    margin-top: auto;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 32px;
+    animation: appear 0.45s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.eyebrow {
+    color: #176bb0;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.welcome {
+    color: #718096;
+    font-size: 14px;
+}
+
+.account-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 18px;
+    background: white;
+    border: 1px solid #e0e7f0;
+    border-radius: 12px;
+}
+
+.account-badge span {
+    color: #718096;
+    font-size: 11px;
+}
+
+.account-badge strong {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.balance-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 28px 30px;
+    margin-bottom: 25px;
+    color: white;
+    background: linear-gradient(115deg, #123c70, #176bb0, #428bfa);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px #176bb026;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.balance-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 17px 32px #176bb033;
+}
+
+.balance-card p {
+    color: #d7e9ff;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.balance-card h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.balance-note {
+    color: #d7e9ff;
+    font-size: 12px;
+}
+
+.balance-icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    background: #ffffff20;
+    border-radius: 16px;
+    font-size: 30px;
+}
+
+.withdraw-card {
+    max-width: 780px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e5ebf3;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px #172b4d0b;
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.withdraw-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    color: #c03949;
+    background: #fff0f1;
+    border-radius: 15px;
+    font-size: 28px;
+}
+
+.card-heading h2 {
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.card-heading p {
+    color: #718096;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.withdraw-card form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 21px 0 9px;
+}
+
+.amount-input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 15px;
+    border: 1px solid #dbe4f0;
+    border-radius: 11px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.amount-input:focus-within {
+    border-color: #3478eb;
+    box-shadow: 0 0 0 4px #3478eb18;
+}
+
+.amount-input span {
+    color: #176bb0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.amount-input input {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    border: none;
+    outline: none;
+    color: #172b4d;
+    background: transparent;
+    font: inherit;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.text-input {
+    width: 100%;
+    height: 49px;
+    padding: 0 14px;
+    border: 1px solid #dbe4f0;
+    border-radius: 10px;
+    outline: none;
+    font: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text-input:focus {
+    border-color: #3478eb;
+    box-shadow: 0 0 0 4px #3478eb18;
+}
+
+.field-help {
+    color: #8390a4;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 9px;
+}
+
+.withdraw-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 51px;
+    margin-top: 26px;
+    padding: 14px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(100deg, #c93646, #ed5a66);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 7px 17px #d943532b;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.withdraw-button span {
+    font-size: 19px;
+}
+
+.withdraw-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 11px 23px #d9435340;
+}
+
+.withdraw-button:active {
+    transform: scale(0.99);
+}
+
+.notice {
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.notice.success {
+    color: #126d43;
+    background: #e7f8ee;
+    border: 1px solid #c7eed7;
+}
+
+.notice.error {
+    color: #b42332;
+    background: #fff0f1;
+    border: 1px solid #ffd4d8;
+}
+
+.security-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-top: 23px;
+    padding-top: 19px;
+    border-top: 1px solid #edf0f5;
+    color: #718096;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.security-note span {
+    color: #16804a;
+    font-weight: 800;
+}
+
+footer {
+    color: #8390a4;
+    font-size: 12px;
+    border-top: 1px solid #e0e7f0;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+@media (max-width: 760px) {
+    .layout { flex-direction: column; }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .brand-subtitle { padding-bottom: 16px; }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar .logout { margin-top: 14px; }
+
+    .main-content { padding: 20px 13px; }
+
+    .topbar h1 { font-size: 25px; }
+
+    .account-badge { width: 100%; }
+
+    .balance-card { padding: 22px 17px; }
+
+    .balance-card h2 { font-size: 26px; }
+
+    .withdraw-card { padding: 21px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
