@@ -2,7 +2,7 @@
 <?php
 session_start();
 require_once "Config/db.php";
-
+require_once "Config/notifications.php";
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
@@ -100,6 +100,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt->execute();
                 $stmt->close();
 
+                $notificationSaved = addNotification(
+    $conn,
+    $user_id,
+    "Withdrawal Successful",
+    "Your withdrawal of Rs. " .
+        number_format((float) $amount, 2) .
+        " has been completed successfully.",
+    "success"
+);
+
+if (!$notificationSaved) {
+    throw new Exception("Could not save withdrawal notification.");
+}
+
+$conn->commit();
                 $conn->commit();
 
                 $message = "Withdrawal successful! Your balance has been updated.";
